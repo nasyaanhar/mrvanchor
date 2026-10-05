@@ -1,0 +1,162 @@
+{
+  "scenarios": [
+    {
+      "id": "S1",
+      "condition": "Valid approval submitted by operator",
+      "expected": "ANCHORED",
+      "mrvanchor": "ANCHORED",
+      "pass": true,
+      "baseline": "ANCHORED"
+    },
+    {
+      "id": "S2",
+      "condition": "Operator withholds; validator-side relayer submits",
+      "expected": "ANCHORED",
+      "mrvanchor": "ANCHORED",
+      "pass": true,
+      "baseline": "ANCHORED"
+    },
+    {
+      "id": "S3",
+      "condition": "Signer is a validator assigned to another plant",
+      "expected": "VALIDATOR_NOT_ASSIGNED",
+      "mrvanchor": "VALIDATOR_NOT_ASSIGNED",
+      "pass": true,
+      "baseline": "ANCHORED"
+    },
+    {
+      "id": "S4",
+      "condition": "Operator also holds a validator role and self-approves",
+      "expected": "SELF_APPROVAL_NOT_ALLOWED",
+      "mrvanchor": "SELF_APPROVAL_NOT_ALLOWED",
+      "pass": true,
+      "baseline": "ANCHORED"
+    },
+    {
+      "id": "S5",
+      "condition": "Record identifier never registered",
+      "expected": "RECORD_NOT_REGISTERED",
+      "mrvanchor": "RECORD_NOT_REGISTERED",
+      "pass": true,
+      "baseline": "ANCHORED"
+    },
+    {
+      "id": "S6",
+      "condition": "Validator approved data that differ from the registered hash",
+      "expected": "DATA_HASH_MISMATCH",
+      "mrvanchor": "DATA_HASH_MISMATCH",
+      "pass": true,
+      "baseline": "ANCHORED"
+    },
+    {
+      "id": "S7",
+      "condition": "Signed field altered after signing",
+      "expected": "INVALID_APPROVAL_SIGNATURE",
+      "mrvanchor": "INVALID_APPROVAL_SIGNATURE",
+      "pass": true,
+      "baseline": "INVALID_APPROVAL_SIGNATURE"
+    },
+    {
+      "id": "S8",
+      "condition": "Approval for v1 submitted after v2 correction",
+      "expected": "STALE_VERSION",
+      "mrvanchor": "STALE_VERSION",
+      "pass": true,
+      "baseline": "ANCHORED"
+    },
+    {
+      "id": "S9",
+      "condition": "Approval of record A reused for record B (same plant, other period, other data)",
+      "expected": "INVALID_APPROVAL_SIGNATURE",
+      "mrvanchor": "INVALID_APPROVAL_SIGNATURE",
+      "pass": true,
+      "baseline": "ANCHORED"
+    },
+    {
+      "id": "S10",
+      "condition": "Approval declares a plant or period other than the registered one",
+      "expected": "RECORD_CONTEXT_MISMATCH",
+      "mrvanchor": "RECORD_CONTEXT_MISMATCH",
+      "pass": true,
+      "baseline": "ANCHORED"
+    },
+    {
+      "id": "S11",
+      "condition": "Approval submitted after its deadline",
+      "expected": "APPROVAL_EXPIRED",
+      "mrvanchor": "APPROVAL_EXPIRED",
+      "pass": true,
+      "baseline": "ANCHORED"
+    },
+    {
+      "id": "S12",
+      "condition": "Version rejected on-chain, then an approval is submitted for it",
+      "expected": "RECORD_REJECTED",
+      "mrvanchor": "RECORD_REJECTED",
+      "pass": true,
+      "baseline": "ANCHORED"
+    },
+    {
+      "id": "S13",
+      "condition": "Already anchored record submitted again",
+      "expected": "ALREADY_ANCHORED",
+      "mrvanchor": "ALREADY_ANCHORED",
+      "pass": true,
+      "baseline": "ALREADY_ANCHORED"
+    }
+  ],
+  "gas": {
+    "setPlantOperator": {
+      "n": 69,
+      "mean": 46091,
+      "min": 46070,
+      "max": 46094
+    },
+    "assignValidator": {
+      "n": 69,
+      "mean": 46683,
+      "min": 46673,
+      "max": 46685
+    },
+    "baseline.setValidator": {
+      "n": 69,
+      "mean": 44228,
+      "min": 44217,
+      "max": 44229
+    },
+    "registerRecordVersion(v1)": {
+      "n": 69,
+      "mean": 119265,
+      "min": 119245,
+      "max": 119269
+    },
+    "anchorRecord": {
+      "n": 21,
+      "mean": 117445,
+      "min": 117419,
+      "max": 117455
+    },
+    "baseline.anchorRecord": {
+      "n": 21,
+      "mean": 77399,
+      "min": 77371,
+      "max": 77407
+    },
+    "registerRecordVersion(correction)": {
+      "n": 21,
+      "mean": 62272,
+      "min": 62253,
+      "max": 62277
+    },
+    "recordRejection": {
+      "n": 21,
+      "mean": 73705,
+      "min": 73688,
+      "max": 73712
+    }
+  },
+  "verify": {
+    "verifyOk": true,
+    "verifyBad": false
+  }
+}

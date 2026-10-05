@@ -1,0 +1,31 @@
+500/5000 cases, mismatches=0
+1000/5000 cases, mismatches=0
+1500/5000 cases, mismatches=0
+2000/5000 cases, mismatches=0
+2500/5000 cases, mismatches=0
+3000/5000 cases, mismatches=0
+3500/5000 cases, mismatches=0
+4000/5000 cases, mismatches=0
+4500/5000 cases, mismatches=0
+5000/5000 cases, mismatches=0
+{
+  "cases": 5000,
+  "mismatches": 0,
+  "falseAccepts": 0,
+  "falseRejects": 0,
+  "invariantViolations": 0,
+  "outcomeDistribution": {
+    "STALE_VERSION": 452,
+    "RECORD_CONTEXT_MISMATCH": 754,
+    "APPROVAL_EXPIRED": 275,
+    "SELF_APPROVAL_NOT_ALLOWED": 231,
+    "INVALID_APPROVAL_SIGNATURE": 451,
+    "VALIDATOR_NOT_ASSIGNED": 476,
+    "RECORD_NOT_REGISTERED": 609,
+    "ALREADY_ANCHORED": 489,
+    "DATA_HASH_MISMATCH": 318,
+    "ANCHORED": 681,
+    "RECORD_REJECTED": 264
+  },
+  "mismatchLog": []
+}

@@ -1,0 +1,14 @@
+id,condition,expected_mrvanchor,observed_mrvanchor,pass,observed_baseline
+S1,"Valid approval submitted by operator",ANCHORED,ANCHORED,true,ANCHORED
+S2,"Operator withholds; validator-side relayer submits",ANCHORED,ANCHORED,true,ANCHORED
+S3,"Signer is a validator assigned to another plant",VALIDATOR_NOT_ASSIGNED,VALIDATOR_NOT_ASSIGNED,true,ANCHORED
+S4,"Operator also holds a validator role and self-approves",SELF_APPROVAL_NOT_ALLOWED,SELF_APPROVAL_NOT_ALLOWED,true,ANCHORED
+S5,"Record identifier never registered",RECORD_NOT_REGISTERED,RECORD_NOT_REGISTERED,true,ANCHORED
+S6,"Validator approved data that differ from the registered hash",DATA_HASH_MISMATCH,DATA_HASH_MISMATCH,true,ANCHORED
+S7,"Signed field altered after signing",INVALID_APPROVAL_SIGNATURE,INVALID_APPROVAL_SIGNATURE,true,INVALID_APPROVAL_SIGNATURE
+S8,"Approval for v1 submitted after v2 correction",STALE_VERSION,STALE_VERSION,true,ANCHORED
+S9,"Approval of record A reused for record B (same plant, other period, other data)",INVALID_APPROVAL_SIGNATURE,INVALID_APPROVAL_SIGNATURE,true,ANCHORED
+S10,"Approval declares a plant or period other than the registered one",RECORD_CONTEXT_MISMATCH,RECORD_CONTEXT_MISMATCH,true,ANCHORED
+S11,"Approval submitted after its deadline",APPROVAL_EXPIRED,APPROVAL_EXPIRED,true,ANCHORED
+S12,"Version rejected on-chain, then an approval is submitted for it",RECORD_REJECTED,RECORD_REJECTED,true,ANCHORED
+S13,"Already anchored record submitted again",ALREADY_ANCHORED,ALREADY_ANCHORED,true,ALREADY_ANCHORED

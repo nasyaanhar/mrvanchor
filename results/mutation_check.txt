@@ -1,0 +1,5 @@
+Fuzzer sensitivity check (300 cases each, one check removed per mutant):
+- Remove check 5 (DATA_HASH_MISMATCH): 25 mismatches, 6 false accepts -> detected
+- Remove check 9 (VALIDATOR_NOT_ASSIGNED): 32 mismatches, 32 false accepts -> detected
+- Remove check 6 (APPROVAL_EXPIRED): 22 mismatches, 6 false accepts -> detected
+Unmodified contract: 5,000 cases, 0 mismatches, 0 invariant violations.
